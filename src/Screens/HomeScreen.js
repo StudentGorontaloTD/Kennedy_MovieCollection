@@ -95,7 +95,7 @@ const [mostViewed, setMostViewed] = useState([]);
                             :
                             null
                             }
-                            <ButtonComponent onPress={() => navigation.navigate('DetailMovie', {title: item.title, year: item.year})}/>
+                            <ButtonComponent onPress={() => navigation.navigate('DetailMovie', {...item})}/>
                             <Text style={styles.rating}>{item.rating}</Text>
                         </View>
                     </View>

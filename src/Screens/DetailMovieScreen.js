@@ -1,18 +1,50 @@
 import { View, Text, StyleSheet , Image } from 'react-native'
 import React, { useEffect } from 'react'
+import MovieExplanation from '../components/MovieExplanation';
 const DetailMovieScreen = (props) => {
   const {route} = props;
-  const movie = route.params.item;
-  const { title, year } = route.params;
-  useEffect (() => {console.log(movie);console.log(title);console.log(year);}, []);
+
+  const { title, imageLink, year, starring, description, rating, viewers} = route.params;
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.movieContainer}>
+
         <View style={styles.middle}>
           <Image
             style={styles.image}
-            source={{uri: movie.imageLink}}
+            source={{ uri: imageLink}}
           />
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>{title}</Text>
+          </View>
+
+          <MovieExplanation
+          name="Release Year"
+          value={year}
+          />
+          <MovieExplanation
+          name="Starring"
+          value={starring}
+          />
+          <MovieExplanation
+          name="Description"
+          value={description}
+          />
+          <MovieExplanation
+          name="Release Year"
+          value={year}
+          />
+          <MovieExplanation
+          name="Viewers"
+          value={viewers}
+          />
+          <MovieExplanation
+          name="Rating"
+          isRating={true}
+          value={rating}
+          />
+
         </View>
       </View>
     </View>
@@ -36,6 +68,22 @@ const DetailMovieScreen = (props) => {
     borderRadius: 10,
     borderWidth: 3,
     borderColor: '#ffbe7bff'
+  },
+
+  titleContainer:{
+    marginTop:8,
+    marginBottom: 8,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+
+  title: {
+    fontSize:24,
+    fontWeight:'bold',
+    padding: 8,
+    backgroundColor: 'salmon',
+    borderRadius: 10,
+    color: 'white'
   }
 
 })

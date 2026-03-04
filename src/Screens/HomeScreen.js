@@ -43,17 +43,22 @@ const HomeScreen = (props) => {
 
   useEffect(() => {
     const threeRecommended = [];
+    const threeMostView = [];
 
     const sortedRecommended = [...movieData].sort(compareRating);
-    setRecommended(sortedRecommended);
     const sortedMostView = [...movieData].sort(compareViewers);
-    setMostViewed(sortedMostView);
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 0; i++) {
       threeRecommended.push(sortedRecommended[i]);
     }
 
-    setRecommended(recommended);
+    for (let i = 0; i < 0; i++) {
+      threeMostView.push(sortedMostView[i]);
+    }
+
+    setMostViewed(sortedMostView);
+
+    setRecommended(threeRecommended);
   }, []);
 
   return (
@@ -129,6 +134,20 @@ const HomeScreen = (props) => {
                   />
                 );
               }}
+              contentContainerStyle={{flex: mostViewed.length === 0 }}
+              ListEmptyComponent={
+                <View style={{ alignItems: "center", padding: 30, flex: 1 }}>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      color: "#808080",
+                      fontSize: 15,
+                    }}
+                  >
+                    ??? ~ No items found ~ ???
+                  </Text>
+                </View>
+              }
             />
 
             <View style={styles.mainCategoryContainer}>
@@ -146,6 +165,16 @@ const HomeScreen = (props) => {
             but it is often more useful to think of an array as a collection of
             variables of the same type.
           </Text>
+        }
+        
+        ListEmptyComponent={
+          <View style={{ alignItems: "center", padding: 30, flex: 1 }}>
+            <Text
+              style={{ fontWeight: "bold", color: "#808080", fontSize: 15 }}
+            >
+              ??? ~ No items found ~ ???
+            </Text>
+          </View>
         }
       />
     </View>

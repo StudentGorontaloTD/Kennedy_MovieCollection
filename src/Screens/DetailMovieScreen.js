@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet , Image } from 'react-native'
+import { View, Text, StyleSheet , Image, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import MovieExplanation from '../components/MovieExplanation';
 const DetailMovieScreen = (props) => {
@@ -7,7 +7,8 @@ const DetailMovieScreen = (props) => {
   const { title, imageLink, year, starring, description, rating, viewers} = route.params;
 
   return (
-    <View style={styles.mainContainer}>
+  <View style={styles.mainContainer}>
+    <ScrollView>
       <View style={styles.movieContainer}>
 
         <View style={styles.middle}>
@@ -47,7 +48,8 @@ const DetailMovieScreen = (props) => {
 
         </View>
       </View>
-    </View>
+    </ScrollView>
+  </View>
   )
 }
 

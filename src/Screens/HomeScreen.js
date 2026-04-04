@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { CalendarOutlined } from "@ant-design/icons";
 import { ButtonComponent } from "../components/ButtonComponent.js";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
 const HomeScreen = (props) => {
   const { navigation } = props;
@@ -47,6 +48,8 @@ const HomeScreen = (props) => {
 
     const sortedRecommended = [...movieData].sort(compareRating);
     const sortedMostView = [...movieData].sort(compareViewers);
+
+    setAllMostViewed(sortedMostViews)
 
     for (let i = 0; i < 0; i++) {
       threeRecommended.push(sortedRecommended[i]);
@@ -119,6 +122,19 @@ const HomeScreen = (props) => {
               <View style={styles.categoryContainer}>
                 <Text style={styles.categoryText}>Most Viewed</Text>
               </View>
+              <View style={styles.seeAllContainer}>
+                <TouchableOpacity
+                
+                onPress={
+                  () => navigation.navigate
+                  ('MostViewedScreen', {...setMostViewed})
+                }
+                
+                >
+                  
+                  <Text style={styles.seeAlltext}>See All</Text>
+                </TouchableOpacity>
+              </View>
             </View>
 
             <FlatList
@@ -134,7 +150,7 @@ const HomeScreen = (props) => {
                   />
                 );
               }}
-              contentContainerStyle={{flex: mostViewed.length === 0 }}
+              contentContainerStyle={{ flex: mostViewed.length === 0 }}
               ListEmptyComponent={
                 <View style={{ alignItems: "center", padding: 30, flex: 1 }}>
                   <Text
@@ -166,7 +182,6 @@ const HomeScreen = (props) => {
             variables of the same type.
           </Text>
         }
-        
         ListEmptyComponent={
           <View style={{ alignItems: "center", padding: 30, flex: 1 }}>
             <Text
@@ -182,9 +197,17 @@ const HomeScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  mainContainer: { Flex: 1 },
-  flatListContainer: { padding: 8 },
-  movieImage: { width: 130, height: 200, borderRadius: 10 },
+  mainContainer: {
+    Flex: 1,
+  },
+  flatListContainer: {
+    padding: 8,
+  },
+  movieImage: {
+    width: 130,
+    height: 200,
+    borderRadius: 10,
+  },
   dataContainer: {
     margin: 8,
     borderColor: "#96ceb4",
@@ -193,22 +216,45 @@ const styles = StyleSheet.create({
     padding: 16,
     flexDirection: "row",
   },
-  title: { fontSize: 18, fontWeight: "bold" },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
   movieDescriptionContainer: {
     flex: 1,
     justifyContent: "center",
     marginLeft: 8,
   },
-  yearContainer: { marginBottom: 8, marginTop: 8 },
+  yearContainer: {
+    marginBottom: 8,
+    marginTop: 8,
+  },
   mainCategoryContainer: {
     marginTop: 8,
     marginLeft: 8,
     marginRight: 8,
     flexDirection: "rows",
   },
-  categoryContainer: { flex: 1 },
-  categoryText: { fontSize: 20, fontWeight: "bold" },
-  starRating: { height: 20, width: 120 },
+  categoryContainer: {
+    flex: 1,
+  },
+  categoryText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  starRating: {
+    height: 20,
+    width: 120,
+  },
+  seeAllContainer: {
+    flex: 1,
+    alignItems: "flex-end",
+    justifyContent: "center",
+  },
+  seeAlltext: {
+    color:'#009688',
+    textDecorationLine:'underline'
+  }
 });
 
 export default HomeScreen;

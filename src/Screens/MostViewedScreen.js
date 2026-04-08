@@ -7,7 +7,27 @@ const MostViewedMovieScreen = (props) => {
 
     useEffect(() => {
         console.log(sortedMostViewed.length);
-    }, []);`'o`
+    }, []);
 }
+
+return(
+    <View>
+        <Flatlist
+        contentContainerStyle={styles.mainDataContainer}
+        data={sortedMostViewed}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+            return (
+                <View style={styles.movieContainer}>
+                    <Image
+                    style={styles.movieImage}
+                    source={{ uri: item.imageLink}}
+                    />
+                </View>
+            )
+        }}
+        />
+    </View>
+)
 
 export default MostViewedMovieScreen

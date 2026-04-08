@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import TryCodeScreen from './src/Screens/TryCodeScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

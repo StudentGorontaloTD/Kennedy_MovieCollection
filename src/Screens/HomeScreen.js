@@ -49,19 +49,17 @@ const HomeScreen = (props) => {
     const sortedRecommended = [...movieData].sort(compareRating);
     const sortedMostView = [...movieData].sort(compareViewers);
 
-    setAllMostViewed(sortedMostViews)
-
-    for (let i = 0; i < 0; i++) {
+    for (let i = 0; i < 3; i++) {
       threeRecommended.push(sortedRecommended[i]);
     }
 
-    for (let i = 0; i < 0; i++) {
+    for (let i = 0; i < 3; i++) {
       threeMostView.push(sortedMostView[i]);
     }
 
     setMostViewed(sortedMostView);
 
-    setRecommended(threeRecommended);
+    setRecommended(sortedRecommended);
   }, []);
 
   return (
@@ -126,8 +124,7 @@ const HomeScreen = (props) => {
                 <TouchableOpacity
                 
                 onPress={
-                  () => navigation.navigate
-                  ('MostViewedScreen', {...setMostViewed})
+                  () => navigation.navigate('MostViewed', {allMostViewed: mostViewed})
                 }
                 
                 >

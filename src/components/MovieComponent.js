@@ -8,7 +8,7 @@ export const ShowMovie = (props) => {
 
 return ( 
     
-    <View style={styles.horizontalDataContainer}>
+    <View style={[styles.horizontalDataContainer, { flex: isHome ? null : 1}]}>
         <Image
             style={styles.movieImage}
             source={image}

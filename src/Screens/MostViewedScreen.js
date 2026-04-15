@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import React, { useEffect } from 'react'
+import { ShowMovie } from '../components/MovieComponent';
 
 const MostViewedMovieScreen = (props) => {
     const {route} = props;
@@ -8,26 +9,44 @@ const MostViewedMovieScreen = (props) => {
     useEffect(() => {
         console.log(sortedMostViewed.length);
     }, []);
-}
 
-return(
+    return(
     <View>
-        <Flatlist
+        <FlatList
         contentContainerStyle={styles.mainDataContainer}
         data={sortedMostViewed}
+        numColumns={2}
+        key={2}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
             return (
-                <View style={styles.movieContainer}>
-                    <Image
-                    style={styles.movieImage}
-                    source={{ uri: item.imageLink}}
-                    />
-                </View>
+                <ShowMovie
+                image={{ uri: item.imageLink}}
+                title={item.title}
+                viewers={item.viewers}
+                />
             )
         }}
         />
     </View>
 )
+}
+
+const styles = StyleSheet.create({
+mainDataContainer: {
+    padding: 8,
+    
+},
+movieContainer: {
+    margin: 10,
+    padding: 16,
+    backgroundColor:'skyblue'
+},
+movieImage: {
+    width:130,
+    height:200
+}
+});
+
 
 export default MostViewedMovieScreen

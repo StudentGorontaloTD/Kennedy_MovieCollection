@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 
 
 export const ShowMovie = (props) => {
-    const { image, title, viewers} = props;
+    const { image, title, viewers, isHome} = props;
 
 return ( 
     

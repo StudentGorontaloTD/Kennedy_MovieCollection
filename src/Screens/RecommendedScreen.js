@@ -1,6 +1,5 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import RecommendedScreen from '../Screens/'
 
 const RecommendedScreen = () => {
   return (
@@ -10,4 +9,4 @@ const RecommendedScreen = () => {
   )
 }
 
-export default RecommendedScreen
+export default RecommendedScreen;

@@ -169,6 +169,16 @@ const HomeScreen = (props) => {
                 <Text style={styles.categoryText}>Most Recommended</Text>
               </View>
             </View>
+
+              <View style={styles.seeAllContainer}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('recommended')}
+                  >
+                    <Text styles={styles.seeAlltext}> See all text </Text>
+                </TouchableOpacity>
+
+              </View>
+
           </View>
         }
         ListFooterComponent={

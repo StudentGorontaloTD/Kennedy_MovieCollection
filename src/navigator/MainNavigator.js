@@ -15,21 +15,67 @@ const MainNavigator = () => {
                 <Stack.Screen
                     name="Home"
                     component={HomeScreen}
+                    options={{
+                        title: 'Home Screen',
+                        headerStyle: {
+                            backgroundColor: 'lavender'
+                        },
+                        headerTitleStyle: {
+                            color: 'green',
+                            fontSize: 24
+                        },
+                        headerTitleAlign: 'center',
+                        
+                    }}
                 />
                 <Stack.Screen
                    name="DetailMovie"
                    component={DetailMovieScreen}
+                   options={{
+                        title: 'Detail Movie',
+                        headerStyle: {
+                            backgroundColor: 'lavender'
+                        },
+                        headerTitleStyle: {
+                            color: 'green',
+                            fontSize: 24
+                        },
+                        headerTitleAlign: 'center',
+                        
+                    }}
                 />
                 <Stack.Screen
                     name="MostViewed"
                     component={MostViewedScreen}
-                    // options={{
-                        //code
-                    // }}
+                    options={{
+                        title: 'Most Viewed',
+                        headerStyle: {
+                            backgroundColor: 'lavender'
+                        },
+                        headerTitleStyle: {
+                            color: 'green',
+                            fontSize: 24
+                        },
+                        headerTitleAlign: 'center',
+                        
+                    }}
                 />
+                
                 <Stack.Screen
                     name="Recommended"
                     component={RecommendedScreen}
+                    options={{
+                        title: 'Recommended',
+                        headerStyle: {
+                            backgroundColor: 'lavender'
+                        },
+                        headerTitleStyle: {
+                            color: 'green',
+                            fontSize: 24
+                        },
+                        headerTitleAlign: 'center',
+                        
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

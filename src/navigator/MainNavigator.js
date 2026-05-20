@@ -67,10 +67,10 @@ const MainNavigator = () => {
                     options={{
                         title: 'Recommended',
                         headerStyle: {
-                            backgroundColor: 'lavender'
+                            backgroundColor: '#65c3ba'
                         },
                         headerTitleStyle: {
-                            color: 'green',
+                            color: 'white',
                             fontSize: 24
                         },
                         headerTitleAlign: 'center',

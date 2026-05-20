@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
 
-const RecommendedScreen = () => {
+const RecommendedScreen = (props) => {
+  const { route } = props;
+  const sortedRecommended = route.params.allRecommended;
+    
   return (
-    <View>
-      <Text>RecommendedScreen</Text>
-    </View>
-  )
+      <View>
+        <FlatList
+          data = {sortedRecommended}
+          contentContainerStyle = {styles.mainContainer}
+          numColumns={2}
+          key={2}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => }
+        />
+      </View>
+    )
 }
 
 export default RecommendedScreen;
